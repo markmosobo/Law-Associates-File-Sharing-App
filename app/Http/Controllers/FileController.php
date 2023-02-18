@@ -36,7 +36,7 @@ class FileController extends Controller
         $request->validate([
             'title' => 'required',
             'detail' => 'required',
-            'file' => 'required|mimes:csv,txt,xlx,xls,pdf, docx|max:2048'
+            'file' => 'required|mimes:csv,txt,xlx,xls,pdf,docx|max:2048'
         ]);
     
         // File::create($request->all());
@@ -45,7 +45,7 @@ class FileController extends Controller
         if($request->file()){
             $fileName = time().'_'.$request->file->getClientOriginalName();
             $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
-            // $file->name = time().'_'.$request->file->getClientOriginalName();
+            $file->name = time().'_'.$request->file->getClientOriginalName();
             $file->file_path = '/storage/' . $filePath;
             $file->detail = $request->detail;
             $file->title = $request->title;
@@ -89,7 +89,7 @@ class FileController extends Controller
         if($request->file()){
             $fileName = time().'_'.$request->file->getClientOriginalName();
             $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
-            // $file->name = time().'_'.$request->file->getClientOriginalName();
+            $file->name = time().'_'.$request->file->getClientOriginalName();
             $file->file_path = '/storage/' . $filePath;
             $file->detail = $request->detail;
             $file->title = $request->title;
