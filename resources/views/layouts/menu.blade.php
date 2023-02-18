@@ -4,7 +4,7 @@
                with font-awesome or any other icon font library -->
                <li class="nav-item">
                 <a href="/home" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <i class="nav-icon fas fa-clipboard"></i>
                 <p>
                   Dashboard
                 </p>
@@ -23,7 +23,7 @@
               @can('isAdmin')
               <li class="nav-item">
                 <a href="/users" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <i class="nav-icon fas fa-user"></i>
                 <p>
                   Users
                 </p>

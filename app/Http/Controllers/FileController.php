@@ -96,7 +96,7 @@ class FileController extends Controller
             $file->update();
             return redirect()->route('files.index')
             ->with('success','File updated successfully');
-        }    
+        }   
 
     }
 
