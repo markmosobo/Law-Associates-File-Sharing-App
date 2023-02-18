@@ -28,3 +28,4 @@ Route::resource('files', FileController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/download', [App\Http\Controllers\DownloadController::class, 'download']);

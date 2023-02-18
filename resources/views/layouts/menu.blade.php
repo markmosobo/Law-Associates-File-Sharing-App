@@ -23,13 +23,21 @@
               @can('isAdmin')
               <li class="nav-item">
                 <a href="/users" class="nav-link">
-                <i class="nav-icon fas fa-user"></i>
+                <i class="nav-icon fas fa-users"></i>
                 <p>
-                  Users
+                  Manage Users
                 </p>
                 </a>
               </li>
               @endcan
+              <li class="nav-item">
+                <a href="/files" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p>
+                  Profile
+                </p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">

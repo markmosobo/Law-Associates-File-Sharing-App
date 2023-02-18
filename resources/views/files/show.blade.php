@@ -28,7 +28,8 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>File Attached:</strong>
-                {{ $file->name }}
+                <a href="
+                {{ url('download?path='. $file->file_path) }}">Download</a>
             </div>
         </div>
     </div>
