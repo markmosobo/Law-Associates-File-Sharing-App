@@ -8,6 +8,6 @@ use Illuminate\Support\Facades\Storage;
 class DownloadController extends Controller
 {
     public function download(Request $request){
-        return Storage::disk('uploads')->download($request->path);
+        return Storage::disk('public')->download($request->path);
     }
 }

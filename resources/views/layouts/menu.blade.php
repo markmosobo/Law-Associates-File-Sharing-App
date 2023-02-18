@@ -31,7 +31,7 @@
               </li>
               @endcan
               <li class="nav-item">
-                <a href="/files" class="nav-link">
+                <a href="/profile" class="nav-link">
                 <i class="nav-icon fas fa-user"></i>
                 <p>
                   Profile
