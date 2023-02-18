@@ -34,14 +34,27 @@ class FileController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'title' => 'required',
             'detail' => 'required',
+            'file' => 'required|mimes:csv,txt,xlx,xls,pdf, docx|max:2048'
         ]);
     
-        File::create($request->all());
+        // File::create($request->all());
+        $file = new File;
+
+        if($request->file()){
+            $fileName = time().'_'.$request->file->getClientOriginalName();
+            $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
+            // $file->name = time().'_'.$request->file->getClientOriginalName();
+            $file->file_path = '/storage/' . $filePath;
+            $file->detail = $request->detail;
+            $file->title = $request->title;
+            $file->save();
+            return redirect()->route('files.index')
+            ->with('success','File uploaded and created successfully.');
+        }
      
-        return redirect()->route('files.index')
-                        ->with('success','File created successfully.');
+
     }
 
     /**
@@ -66,14 +79,25 @@ class FileController extends Controller
     public function update(Request $request, File $file)
     {
         $request->validate([
-            'name' => 'required',
+            'title' => 'required',
             'detail' => 'required',
+            'file' => 'required|mimes:csv,txt,xlx,xls,pdf,docx|max:2048'
         ]);
     
-        $file->update($request->all());
-    
-        return redirect()->route('files.index')
-                        ->with('success','File updated successfully');
+        $file = new File;
+
+        if($request->file()){
+            $fileName = time().'_'.$request->file->getClientOriginalName();
+            $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
+            // $file->name = time().'_'.$request->file->getClientOriginalName();
+            $file->file_path = '/storage/' . $filePath;
+            $file->detail = $request->detail;
+            $file->title = $request->title;
+            $file->update();
+            return redirect()->route('files.index')
+            ->with('success','File updated successfully');
+        }    
+
     }
 
     /**

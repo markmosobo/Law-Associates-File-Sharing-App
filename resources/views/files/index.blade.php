@@ -21,15 +21,19 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
-            <th>Name</th>
+            <th>Title</th>
             <th>Details</th>
+            <!-- <th>Uploaded By</th> -->
+            <th>Uploaded On</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($files as $file)
         <tr>
             <td>{{ ++$i }}</td>
-            <td>{{ $file->name }}</td>
+            <td>{{ $file->title }}</td>
             <td>{{ $file->detail }}</td>
+            <!-- <td></td> -->
+            <td>{{$file->created_at}}</td>
             <td>
                 <form action="{{ route('files.destroy',$file->id) }}" method="POST">
    
