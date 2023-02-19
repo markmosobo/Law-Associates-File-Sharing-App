@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\PagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,13 @@ use App\Http\Controllers\FileController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::get('about', [PagesController::class, 'about']);
+Route::get('services', [PagesController::class, 'services']);
+Route::get('portfolio', [PagesController::class, 'portfolio']);
+Route::get('contact', [PagesController::class, 'contact']);
+
 
 Auth::routes();
 
